@@ -4,7 +4,7 @@ namespace ChessGame
 {
     internal class Program
     {
-        
+
 
         public static void Main(string[] args)
         {
@@ -32,11 +32,35 @@ namespace ChessGame
                 string move = Console.ReadLine();
                 x = FigureHelper.LetterToPos(move[0]);
                 y = Convert.ToInt32(move[1].ToString());
-                figure.MoveTo(new Position(x, y));
+
+                bool moveIsPossible = IsMovePossible(x, y, possibleMoves);
+
+                if (!moveIsPossible)
+                {
+                    Console.WriteLine("NOOOOOO");
+                } 
+                else
+                {
+                    figure.MoveTo(new Position(x, y));
+                }
+
+                possibleMoves.Clear();
 
                 Console.Clear();
                 Painter.Draw(figures, possibleMoves);
             }
+        }
+
+        private static bool IsMovePossible(int x, int y, List<Position> possibleMoves)
+        {
+            bool moveIsPossible = false;
+            foreach (var possibleMove in possibleMoves)
+            {
+                if (possibleMove.x == x && possibleMove.y == y)
+                    moveIsPossible = true;
+            }
+
+            return moveIsPossible;
         }
     }
 }
