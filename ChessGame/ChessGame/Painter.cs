@@ -26,13 +26,13 @@ namespace ChessGame
                     }
                     else if (!isChangedColor)
                     {
-                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.BackgroundColor = ConsoleColor.Gray;
                         Console.Write("  ");
                         isChangedColor = true;
                     }
                     else
                     {
-                        Console.BackgroundColor = ConsoleColor.Black;
+                        Console.BackgroundColor = ConsoleColor.DarkGray;
                         Console.Write("  ");
                         isChangedColor = false;
                     }
@@ -51,6 +51,13 @@ namespace ChessGame
             if (figure != null) 
             {
                 Console.SetCursorPosition(x * 2, 10 - y);
+
+                if (figure.color == Model.Color.White) {
+                    Console.ForegroundColor = ConsoleColor.White;
+                } else
+                {
+                    Console.ForegroundColor = ConsoleColor.Black;
+                }
                 Console.Write(figure.GetIcon());
             }
         }

@@ -7,15 +7,8 @@ namespace Model
 
         public override string GetIcon()
         {
-            if (color == Color.White) 
-            {
-                return "♗";
-            } 
-            else
-            {
-                return "♝";
-            }
-            
+            return "♝";
+
         }
 
         public override List<Position> GetPossibleMoves(List<Figure> figures)

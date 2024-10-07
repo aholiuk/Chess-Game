@@ -7,14 +7,7 @@ namespace Model
 
         public override string GetIcon()
         {
-            if (color == Color.White)
-            {
-                return "♘";
-            }
-            else
-            {
-                return "♞";
-            }
+            return "♞";
 
         }
 
